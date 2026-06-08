@@ -6,4 +6,6 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "django>=6.0.6",
+    "django-prose-editor[sanitize]>=0.25.1",
+    "pillow>=12.2.0",
 ]
