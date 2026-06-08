@@ -10,6 +10,9 @@ class TaggedItem(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey(ct_field="content_type", fk_field="object_id")
 
+    def __str__(self):
+        return f"{self.tag} | {self.content_object}"
+
 
 class Tag(models.Model):
     text = models.CharField(max_length=50)
