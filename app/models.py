@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, AbstractUser, BaseUserManager
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import gettext as _
 
 
@@ -22,9 +22,11 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
+    first_name = models.CharField(_("first name"), max_length=150)
+    last_name = models.CharField(_("last name"), max_length=150)
     username = None
     email = models.EmailField(_("email address"), unique=True)
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ["first_name", "last_name"]
 
     objects = UserManager()
